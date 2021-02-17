@@ -155,7 +155,13 @@ kludge = 0.25 # helps with printing the plots (you can tweak this value if you l
 # WRITEME: write your code here create and save a plot of loss versus epoch
 
 # plt.show() # convenience command to force plots to pop up on desktop
-
+# make contour plot
+xx, yy = np.mgrid[-1.2:1.2:.01, -1.2:1.2:.01]
+xx1 = xx.ravel()
+yy1 = yy.ravel()
+grid = np.c_[xx1, yy1]
+grid_nl = []
+# re-apply feature map to inputs x1 & x2	     
 for i in range(1, degree+1):  
 	for j in range(0, i+1):
 		feat = np.power(xx1, i-j) * np.power(yy1, j)
